@@ -32,9 +32,10 @@ def python_is_cool(text):
     return f"Python {text}"
 
 
-@app.route('/number/<n>', strict_slashes=False)
-def display_int(n):
-    if isinstance(n, int):
+@app.route("/number/<int:n>", strict_slashes=False)
+def display_number(n):
+    """display “n is a number” only if n is an integer"""
+    if type(n) is int:
         return f"{n} is a number"
 
 
